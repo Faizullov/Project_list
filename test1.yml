@@ -1,0 +1,21 @@
+---
+- name: "Start"
+  hosts: "localhost"
+  tasks:
+  - name: check
+    os_server_info:
+      cloud: openstack
+    register: result23
+
+  - name: show
+    debug:
+      msg: "{{ result23.openstack_servers }}"
+
+  - name: "Collecting information"
+    os_image_info:
+    register: result
+    
+  - name: Show openstack information
+    debug:
+      msg: "{{ result.openstack_image }}" 
+...
