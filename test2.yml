@@ -1,0 +1,12 @@
+- name: "Start"
+  hosts: "localhost"
+  tasks:
+  
+  - name:
+    my_test:
+      cloud: openstack
+    register: res
+
+  - name: Show openstack information
+    debug:
+      msg: "{{ res }}" 
